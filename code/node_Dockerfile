@@ -1,0 +1,8 @@
+FROM node:10.18.1-buster
+
+WORKDIR /usr/src/app
+COPY ./routing-challenge/dashboard ./
+
+RUN npm install
+EXPOSE 80 
+CMD ["./bin/server"]

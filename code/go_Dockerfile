@@ -1,0 +1,7 @@
+FROM golang:buster
+
+WORKDIR /usr/src/app
+COPY ./routing-challenge/delivery-server .
+RUN go build -o server cmd/server/main.go
+EXPOSE 80
+CMD ["./server"]
