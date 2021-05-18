@@ -23,14 +23,14 @@ cleanup () {
 }
 
 trap 'cleanup' EXIT INT TERM
-systemctl start docker.socket
-systemctl start docker.service
 
 cp -r routing-challenge code 
 apt-get install -y docker.io nginx
 
 adduser ubuntu docker
 systemctl disable nginx.service
+systemctl start docker.socket
+systemctl start docker.service
 
 # build app container images
 docker build -f code/node_Dockerfile -t dashboard .
